@@ -1,0 +1,131 @@
+/**
+Primary Cascading Style Sheet (CSS) loaded with the home page scene, has impact 
+on all the controls placed.
+**/
+
+/*Search box default style*/
+.text-input.search-box{
+    -fx-text-fill: white;
+
+    -fx-background-color: #3d4b6d;
+    -fx-padding: -9 9 -6 0;
+    -fx-border-image-source: url("../images/search-box.png"); 
+    -fx-border-image-slice: 12 12 12 28;
+    -fx-border-image-width: 12 12 12 22;
+    -fx-border-image-repeat: stretch; 
+    -fx-font-size: 12px;
+
+}
+
+/*Search box style on focus 
+will be achieved by image replacement will try some "CSS3" tricks to do the same.
+*/
+.text-input.search-box:focused { 
+    -fx-border-image-source: url("../images/search-box-active.png"); 
+    -fx-background-insets: 0;
+}
+
+/*Styling for reducing the resizable bars thickness*/
+.split-pane > .split-pane-divider {
+    -fx-border-color:  transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0 0 0 0;
+
+}
+
+/*Grabbers are the three dots in mid of resizable vertical bars
+    overriding padding & shapes to remove it
+*/
+.split-pane *.horizontal-grabber {
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.scroll-pane {
+    -fx-background-insets: 0, 0;
+    -fx-padding: 0;
+}
+
+/*middle scroll area background color change to match standard guideline a 
+    kind of off-white shade */
+.parentcontent{
+    -fx-background-color:#FFFFFF; 
+}
+
+/*setting DARK BLUE color and ROUNDED CORNER for header and footer Hboxes*/
+#header, #topToolbar {
+    -fx-background-color:#113258; 
+    -fx-background-radius: 10 10 0 0; 
+}
+
+#footer{
+    -fx-background-color:#113258; 
+    -fx-background-radius: 0 0 10 10;
+}
+
+/* Overriding default Combo box and its down arrow CSS to have a similar look 
+and feel as per guidelines.*/
+.combo-box {
+    -fx-background: #f6f7f8;
+    -fx-background-color: #f6f7f8;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-padding: 0 0 2 7;
+    -fx-cell-size: 1.0em; 
+}
+.arrow-button{
+    -fx-background: #60a0d7;
+    -fx-background-color: #60a0d7;
+}
+.arrow{
+    -fx-background: white;
+    -fx-background-color: white;
+}
+.combo-box:hover {
+    -fx-background-color: #e8eaec;
+}
+
+
+/*Window minimize, maximize & close button images changed*/
+#window-resize-button {
+    -fx-background-image: url("../images/window-corner.png");
+    -fx-background-position: right 1px bottom 1px;
+    -fx-background-repeat: no-repeat;
+}
+#window-close {
+    -fx-font-size: 1px;
+    -fx-background-color: null;
+    -fx-background-image: url("../images/window-close.png");
+    -fx-background-repeat: no-repeat;
+    -fx-padding: 6 6 4 6;
+}
+#window-min {
+    -fx-font-size: 1px;
+    -fx-background-color: null;
+    -fx-background-image: url("../images/window-min.png");
+    -fx-background-repeat: no-repeat;
+    -fx-padding: 6 6 4 6;
+}
+#window-max {
+    -fx-font-size: 1px;
+    -fx-background-color: null;
+    -fx-background-image: url("../images/window-expand.png");
+    -fx-background-repeat: no-repeat;
+    -fx-padding: 6 6 4 6;
+}
+#window-close:hover {
+    -fx-background-image: url("../images/window-close-over.png");
+}
+#window-min:hover {
+    -fx-background-image: url("../images/window-min-over.png");
+}
+#window-max:hover {
+    -fx-background-image: url("../images/window-expand-over.png");
+}
+
+/*Application title "IP Console - GenX" */
+#app-title{
+    -fx-background-color:#113258; 
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 70;
+}

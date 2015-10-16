@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<VBox onMouseClicked="#removeSearchBoxFocus" prefHeight="600.0" prefWidth="900.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mitel.console.home.ConsoleController">
+  <children>
+    <BorderPane fx:id="header" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.9649658203125" prefWidth="900.0" style="">
+      <center>
+        <Pane fx:id="topBarNotificCount" cache="true" cacheHint="DEFAULT" depthTest="INHERIT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-1.0" minWidth="-1.0" prefHeight="39.02030944824219" prefWidth="50.0" BorderPane.alignment="CENTER_RIGHT">
+          <children>
+            <Circle centerY="10.0" layoutX="-1.0" layoutY="7.0" radius="9.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="3.0">
+              <fill>
+                <Color blue="0.373" green="0.196" red="0.082" fx:id="x6" />
+              </fill>
+            </Circle>
+          </children>
+          <padding>
+            <Insets fx:id="x5" />
+          </padding>
+          <BorderPane.margin>
+            <Insets right="40.0" top="5.0" />
+          </BorderPane.margin>
+        </Pane>
+      </center>
+      <left>
+        <ImageView fitHeight="39.020408285829504" fitWidth="106.22222137451172" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_LEFT">
+          <image>
+            <Image url="@../images/mitel-logo.PNG" />
+          </image>
+        </ImageView>
+      </left>
+      <right>
+        <TextField fx:id="searchBox" editable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-1.0" prefColumnCount="50" prefHeight="24.0" prefWidth="182.99993896484375" promptText="" styleClass="search-box" BorderPane.alignment="CENTER_RIGHT">
+          <tooltip>
+            <Tooltip text="Search" />
+          </tooltip>
+          <BorderPane.margin>
+            <Insets right="5.0" />
+          </BorderPane.margin>
+        </TextField>
+      </right>
+      <top>
+        <ToolBar fx:id="topToolbar" maxWidth="-1.0" minHeight="18.0" prefHeight="18.0" prefWidth="378.0" style="" BorderPane.alignment="BOTTOM_RIGHT" />
+      </top>
+    </BorderPane>
+    <SplitPane disable="false" dividerPositions="0.22383073496659242, 0.7472160356347439" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" rotate="0.0" visible="true" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane minWidth="200.0" prefWidth="200.0">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Menu contents" textAlignment="CENTER" wrapText="false">
+              <font>
+                <Font size="18.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+              </textFill>
+            </Label>
+          </children>
+        </AnchorPane>
+        <ScrollPane fx:id="parentcontent" prefHeight="-1.0" prefWidth="-1.0" styleClass="parentcontent">
+          <content>
+            <AnchorPane prefHeight="574.0" prefWidth="516.0">
+              <children>
+                <Label alignment="CENTER" font="$x1" layoutX="31.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Details will go here!" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+        <BorderPane minWidth="200.0" prefHeight="453.0" prefWidth="200.0">
+          <top>
+            <VBox id="VBox" alignment="CENTER" fillWidth="true" maxHeight="+Infinity" maxWidth="+Infinity" minWidth="183.0" prefHeight="184.0" prefWidth="183.0" spacing="5.0">
+              <children>
+                <ImageView fitHeight="106.07007030516556" fitWidth="183.00001525878906" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../images/user-image.png" />
+                  </image>
+                </ImageView>
+                <Label contentDisplay="LEFT" graphicTextGap="4.0" maxWidth="1.7976931348623157E308" prefHeight="24.0" prefWidth="218.9998779296875" text="Status" underline="false" VBox.vgrow="ALWAYS">
+                  <font>
+                    <Font name="System Bold" size="13.0" />
+                  </font>
+                  <labelFor>
+                    <ComboBox fx:id="statusCombo" cache="false" editable="false" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="183.0" promptText="Available" translateX="-5.0" visibleRowCount="10">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Available" />
+                          <String fx:value="Busy" />
+                          <String fx:value="Not In Office" />
+                        </FXCollections>
+                      </items>
+                      <rotationAxis>
+                        <Point3D z="1.0" />
+                      </rotationAxis>
+                      <tooltip>
+                        <Tooltip text="Status" />
+                      </tooltip>
+                    </ComboBox>
+                  </labelFor>
+                </Label>
+                <fx:reference source="statusCombo" />
+              </children>
+            </VBox>
+          </top>
+        </BorderPane>
+      </items>
+    </SplitPane>
+    <HBox fx:id="footer" alignment="CENTER_LEFT" minWidth="727.0" prefHeight="61.0" prefWidth="727.0" spacing="5.0" style="" VBox.vgrow="NEVER">
+      <children>
+        <Slider />
+        <ImageView blendMode="SRC_ATOP" fitHeight="34.5454216003418" fitWidth="37.99996376037598" mouseTransparent="false" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../images/volume_up.png" />
+          </image>
+        </ImageView>
+        <ImageView blendMode="SRC_ATOP" fitHeight="28.000011444091797" fitWidth="30.800012136605893" mouseTransparent="false" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../images/footer-circle.png" />
+          </image>
+        </ImageView>
+        <ImageView blendMode="SRC_ATOP" fitHeight="28.000011444091797" fitWidth="30.800012136605893" mouseTransparent="false" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../images/footer-circle.png" />
+          </image>
+        </ImageView>
+        <Region prefHeight="55.0" prefWidth="274.0" HBox.hgrow="ALWAYS" />
+        <ImageView fx:id="windowResizer" fitHeight="16.0" fitWidth="16.0" mouseTransparent="false" pickOnBounds="false" preserveRatio="true" style="">
+          <image>
+            <Image url="@../images/window-corner.png" />
+          </image>
+          <HBox.margin>
+            <Insets top="35.0" />
+          </HBox.margin>
+        </ImageView>
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+  <stylesheets>
+    <URL value="@../css/ConsoleHome.css" />
+  </stylesheets>
+</VBox>
